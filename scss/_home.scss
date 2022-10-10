@@ -1,0 +1,1539 @@
+.hero {
+  position: relative;
+  margin: 110px 24px 0;
+  padding: 5% 0 0;
+  height: 90vh;
+  overflow: hidden;
+  border-radius: 32px;
+  background-color: $red-light;
+
+  &__wrapper {
+    position: relative;
+
+    @include m($lg) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  &__img {
+    opacity: 0;
+    margin: 0 auto;
+    width: 80%;
+    animation: hero 1s forwards;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @include m($xl) {
+      margin: 4% auto 0;
+    }
+
+    @include m($lg) {
+      margin: auto auto -5%;
+      width: 100%;
+    }
+
+    @include m($md) {
+      img {
+        transform: scale(1.4);
+      }
+    }
+
+    @include m(590) {
+      margin: auto auto 3%;
+    }
+  }
+
+  &__rotate {
+    position: absolute;
+    right: 20%;
+    top: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 50%;
+    transform: scale(0.9) translateX(50%);
+    animation: rotate-appear 1.8s forwards;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 2;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: $white;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 160px;
+      height: 160px;
+      background-image: linear-gradient(180deg, #00b049 0%, #00a2ac 52.6%, #005a8d 100%);
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 5;
+      animation: rotating 14s linear infinite;
+    }
+
+    span {
+      z-index: 3;
+      display: block;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: -0.02em;
+      color: $green-dark;
+    }
+
+    @include m($xl) {
+      right: 10%;
+      transform: scale(0.9) translateX(50%);
+    }
+
+    @include m($lg) {
+      right: 50%;
+      top: 30%;
+      transform: scale(0.7) translateX(70%);
+    }
+
+    @include m($sm) {
+      top: 47%;
+    }
+  }
+
+  h1 {
+    position: relative;
+    z-index: 5;
+    opacity: 0;
+    margin: 0 auto 28px;
+    max-width: 996px;
+    text-align: center;
+    color: $white;
+    animation: hero 0.8s 0.6s forwards;
+
+    &::after {
+      content: "Mono Cats is a blockchain game IP by Mono Labs";
+      position: absolute;
+      left: 50%;
+      top: 4px;
+      z-index: -1;
+      width: 100%;
+      font-family: LuckiestGuy, cursive;
+      font-weight: 400;
+      font-size: 70px;
+      line-height: 72px;
+      letter-spacing: normal;
+      color: $red-dark;
+      transform: translateX(-50%);
+
+      @include m($lg) {
+        padding: 0 32px;
+        font-size: 44px;
+        line-height: 40px;
+      }
+    }
+
+    @include m($lg) {
+      padding: 0 32px;
+      font-size: 44px;
+    }
+
+    @include m($md) {
+      margin-bottom: 12px;
+    }
+  }
+
+  p {
+    opacity: 0;
+    margin: 0 auto;
+    max-width: 494px;
+    text-align: center;
+    color: $white;
+    animation: hero 0.8s 0.9s forwards;
+
+    @include m($lg) {
+      padding: 0 15px;
+    }
+  }
+
+  .scroll-down {
+    @include m($lg) {
+      display: none;
+    }
+  }
+
+  @include m($xl) {
+    margin: 112px 24px 0;
+    padding: 5% 0 0;
+    height: 80vh;
+  }
+
+  @include m($lg) {
+    margin: 64px 17px 0;
+    padding: 5% 0 0;
+    height: 85vh;
+  }
+
+  @include m($md) {
+    margin: 64px 17px 0;
+    padding: 5% 0 0;
+  }
+
+  @include m($sm) {
+    padding: 5% 0 0;
+  }
+
+  @keyframes hero {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes circle1 {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+
+    25% {
+      transform: translateX(15%) translateY(0);
+    }
+
+    50% {
+      transform: translateX(15%) translateY(-15%);
+    }
+
+    75% {
+      transform: translateX(0) translateY(-15%);
+    }
+
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @keyframes circle2 {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+
+    25% {
+      transform: translateX(15%) translateY(-15%);
+    }
+
+    50% {
+      transform: translateX(0) translateY(-15%);
+    }
+
+    75% {
+      transform: translateX(15%) translateY(-15%);
+    }
+
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @keyframes circle3 {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+
+    25% {
+      transform: translateX(0) translateY(15%);
+    }
+
+    50% {
+      transform: translateX(-15%) translateY(0);
+    }
+
+    75% {
+      transform: translateX(15%) translateY(-15%);
+    }
+
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @keyframes circle4 {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+
+    25% {
+      transform: translateX(0) translateY(10%);
+    }
+
+    50% {
+      transform: translateX(15%) translateY(15%);
+    }
+
+    75% {
+      transform: translateX(-15) translateY(-15%);
+    }
+
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg) scale(0.95);
+    }
+
+    to {
+      transform: rotate(360deg) scale(0.95);
+    }
+  }
+}
+
+.story {
+  position: relative;
+  margin: 200px auto 150px;
+  padding: 120px 100px;
+  width: 95%;
+  max-width: 1416px;
+  border-radius: 32px;
+  background-color: $beige-light;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+    width: 94%;
+    height: 80px;
+    background-color: $orange-light;
+    transform: translateX(-50%);
+  }
+
+  &::before {
+    bottom: -24px;
+    border-radius: 0 0 32px 32px;
+
+    @include m($lg) {
+      bottom: -12px;
+      border-radius: 0 0 16px 16px;
+    }
+  }
+
+  &::after {
+    top: -24px;
+    border-radius: 32px 32px 0 0;
+
+    @include m($lg) {
+      top: -12px;
+      border-radius: 16px 16px 0 0;
+    }
+  }
+
+  &__img-mobile {
+    display: none;
+
+    @include m(600) {
+      display: block;
+      opacity: 0;
+      margin-top: 16px;
+      animation: rota-img 1.2s forwards;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      max-width: 300px;
+    }
+
+    @include m($lg) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__text {
+    z-index: 5;
+    margin-left: 30px;
+    max-width: 476px;
+
+    @include m(1280) {
+      max-width: 380px;
+    }
+
+    @include m($xl) {
+      max-width: 320px;
+    }
+
+    @include m($lg) {
+      margin-left: 0;
+      max-width: 100%;
+    }
+  }
+
+  .headings-title {
+    margin-bottom: 32px;
+    padding: 5px 0 0 5px;
+    overflow: hidden;
+
+    .stroke {
+      -webkit-text-stroke: 8px $green-dark;
+    }
+
+    h2 {
+      animation: fade 1s;
+    }
+
+    h2:not(:first-child) {
+      left: 5px;
+      top: 5px;
+    }
+
+    @include m($lg) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .hide {
+    .wow {
+      opacity: 0;
+      animation: fade 1s 0.2s forwards;
+    }
+  }
+
+  h5 {
+    margin-bottom: 24px;
+    line-height: 28px;
+    color: $brown-dark;
+
+    @include m($lg) {
+      margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  @include m(1400) {
+    margin: 160px auto 84px;
+    padding: 90px 80px;
+  }
+
+  @include m($xl) {
+    margin: 120px auto 84px;
+    padding: 80px 40px;
+  }
+
+  @include m($lg) {
+    margin: 100px auto 84px;
+    padding: 64px 28px;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  @include m($md) {
+    margin: 80px auto 84px;
+  }
+
+  @keyframes rota-img {
+    from {
+      opacity: 0;
+      transform: translateY(100%) rotate(45deg);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) rotate(0);
+    }
+  }
+}
+
+.artwork {
+  margin-bottom: 184px;
+  padding: 5px 0;
+  overflow-x: hidden;
+
+  .headings-title {
+    margin-bottom: 48px;
+    padding-top: 5px;
+    overflow: hidden;
+    text-align: center;
+
+    .stroke {
+      -webkit-text-stroke: 8px $red-dark;
+    }
+
+    h2:not(:first-child) {
+      top: 5px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      animation: fade 1s;
+    }
+
+    @include m($lg) {
+      margin-bottom: 32px;
+    }
+  }
+
+  ul {
+    li {
+      margin: 0 24px;
+      border-radius: 16px;
+
+      @include m(1400) {
+        margin: 0 20px;
+      }
+
+      @include m($xl) {
+        margin: 0 12px;
+      }
+    }
+
+    img {
+      border-radius: 16px;
+    }
+  }
+
+  @include m($xl) {
+    margin-bottom: 150px;
+  }
+
+  @include m($lg) {
+    margin-bottom: 70px;
+  }
+}
+
+.roadmap {
+  position: relative;
+  margin: 0 24px 184px;
+  padding: 160px 0;
+  border-radius: 32px;
+  background-color: $orange-light;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+    width: 94%;
+    height: 80px;
+    background-color: $beige-dark;
+    transform: translateX(-50%);
+  }
+
+  &::before {
+    bottom: -24px;
+    border-radius: 0 0 32px 32px;
+
+    @include m($lg) {
+      bottom: -12px;
+      border-radius: 0 0 16px 16px;
+    }
+  }
+
+  &::after {
+    top: -24px;
+    border-radius: 32px 32px 0 0;
+
+    @include m($lg) {
+      top: -12px;
+      border-radius: 16px 16px 0 0;
+    }
+  }
+
+  .decor-section1 {
+    position: absolute;
+    left: 16%;
+    top: 40%;
+
+    @include m($md) {
+      display: none;
+    }
+  }
+
+  .decor-section2 {
+    position: absolute;
+    right: 16%;
+    top: 60%;
+
+    @include m($md) {
+      display: none;
+    }
+  }
+
+  .headings-title {
+    position: relative;
+    margin-bottom: 48px;
+    padding: 5px 0 0;
+    overflow: hidden;
+    text-align: center;
+
+    h2:not(:first-child) {
+      top: 5px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      animation: fade 1s;
+    }
+
+    img {
+      position: absolute;
+      right: 33%;
+      top: 100px;
+    }
+
+    .stroke {
+      -webkit-text-stroke: 8px $orange-dark;
+    }
+
+    @include m($lg) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .headings-1,
+  .headings-2,
+  .headings-3,
+  .headings-4 {
+    padding: 5px;
+    min-height: 32px;
+    overflow: hidden;
+
+    h4 {
+      width: 100%;
+      animation: fade 1s;
+    }
+
+    h4:not(:first-child) {
+      padding: 5px;
+    }
+  }
+
+  .headings-1 {
+    .stroke {
+      -webkit-text-stroke: 8px #4e55ff;
+    }
+  }
+
+  .hide {
+    .wow {
+      opacity: 0;
+      animation: fade 1s 0.05s forwards;
+    }
+  }
+
+  .headings-2 {
+    .stroke {
+      -webkit-text-stroke: 8px #4f8bff;
+    }
+  }
+
+  .headings-3 {
+    position: relative;
+
+    img {
+      position: absolute;
+      left: -22%;
+      top: -65px;
+    }
+
+    .stroke {
+      -webkit-text-stroke: 8px #7e6ae7;
+    }
+  }
+
+  .decor-head1 {
+    position: absolute;
+    left: -5%;
+    top: -15%;
+
+    @include m($md) {
+      display: none;
+    }
+  }
+
+  .headings-4 {
+    .stroke {
+      -webkit-text-stroke: 8px #ac5167;
+    }
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    padding: 0 16px;
+    width: 100%;
+    max-width: 1018px;
+  }
+
+  &__box {
+    position: relative;
+    z-index: 10;
+    padding: 40px;
+    width: 100%;
+    max-width: 476px;
+    border: 4px solid $red-dark;
+    border-radius: 24px;
+    background-color: $red-light;
+
+    .headings {
+      z-index: 10;
+      margin-bottom: 24px;
+
+      h4 {
+        z-index: 10;
+      }
+
+      @include m($lg) {
+        margin-bottom: 12px;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: -66px;
+
+      @include m($xl) {
+        margin-top: 24px;
+      }
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+
+    &:first-child {
+      .img-arrow1 {
+        position: absolute;
+        right: -45%;
+        top: 56%;
+        transform: translateY(-50%);
+      }
+
+      .img-box1 {
+        position: absolute;
+        left: -27%;
+        top: -17%;
+        z-index: -1;
+
+        @include m($md) {
+          top: -20%;
+          width: 100%;
+          max-width: 140px;
+        }
+
+        @include m($sm) {
+          left: auto;
+          right: -10%;
+          top: -10%;
+          max-width: 120px;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .img-arrow2 {
+        position: absolute;
+        left: -68%;
+        top: 60%;
+        transform: translateY(-50%);
+      }
+
+      .img-box2 {
+        position: absolute;
+        right: -13%;
+        top: -20%;
+        z-index: -1;
+
+        @include m($md) {
+          width: 100%;
+          max-width: 140px;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      .img-arrow3 {
+        position: absolute;
+        right: -58%;
+        top: 61%;
+        transform: translateY(-50%);
+      }
+
+      .img-box3 {
+        position: absolute;
+        right: -17%;
+        top: -32%;
+        z-index: -1;
+
+        @include m($md) {
+          top: -20%;
+          width: 100%;
+          max-width: 140px;
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      .img-box4-2 {
+        position: absolute;
+        left: -63%;
+        top: 64%;
+        transform: translateY(-50%);
+
+        @include m($md) {
+          display: none;
+          width: 100%;
+          max-width: 140px;
+        }
+      }
+
+      .img-box4 {
+        position: absolute;
+        right: 5%;
+        top: -17%;
+        z-index: -1;
+        display: block;
+        object-fit: contain;
+
+        @include m($md) {
+          top: -10%;
+          width: 70px;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      margin-left: auto;
+    }
+
+    @include m($lg) {
+      padding: 24px;
+    }
+  }
+
+  .decor-star {
+    position: absolute;
+    left: -27%;
+    top: 100px;
+  }
+
+  .decor-head {
+    position: absolute;
+    right: -5%;
+    top: 85%;
+  }
+
+  .last-elem {
+    position: relative;
+
+    img {
+      position: absolute;
+      right: -3%;
+      top: 0;
+
+      @include m($md) {
+        display: none;
+      }
+    }
+  }
+
+  @include m($xl) {
+    margin: 0 17px 184px;
+    padding: 100px 0;
+  }
+
+  @include m($lg) {
+    margin: 0 17px 92px;
+    padding: 64px 0;
+    border-radius: 16px;
+  }
+}
+
+.benefits {
+  margin: 0 auto 160px;
+  padding: 5px 17px;
+  overflow-x: hidden;
+
+  img {
+    width: 88px;
+    height: 88px;
+    border-radius: 16px;
+
+    &:not(:last-child) {
+      margin-right: 16px;
+
+      @include m($md) {
+        margin-right: 12px;
+      }
+
+      @include m($sm) {
+        margin-right: 8px;
+      }
+    }
+
+    @include m($lg) {
+      width: 78px;
+      height: 78px;
+    }
+
+    @include m($md) {
+      width: 68px;
+      height: 68px;
+    }
+
+    @include m($sm) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  span {
+    display: inline-block;
+    height: 88px;
+    font-family: LuckiestGuy, cursive;
+    font-weight: 400;
+    font-size: 104px;
+    line-height: 88px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $brown-dark;
+
+    &:not(:last-child) {
+      margin-right: 16px;
+
+      @include m($md) {
+        margin-right: 12px;
+      }
+
+      @include m($sm) {
+        margin-right: 8px;
+      }
+    }
+
+    @include m($lg) {
+      height: 78px;
+      font-size: 90px;
+      line-height: 78px;
+    }
+
+    @include m($md) {
+      height: 68px;
+      font-size: 70px;
+      line-height: 68px;
+    }
+
+    @include m($sm) {
+      height: 48px;
+      font-size: 52px;
+      line-height: 48px;
+    }
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5px 0 0;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+
+      @include m($md) {
+        margin-bottom: 12px;
+      }
+
+      @include m($sm) {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  h5 {
+    margin: 74px auto 0;
+    max-width: 554px;
+    text-align: center;
+
+    @include m($xl) {
+      margin: 50px auto 0;
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    @include m($lg) {
+      margin: 24px auto 0;
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  .hide {
+    .wow {
+      animation: fade 1.2s;
+    }
+  }
+
+  @include m($xl) {
+    margin: 0 auto 120px;
+  }
+
+  @include m($lg) {
+    display: none;
+    margin: 0 auto 80px;
+  }
+}
+
+.team {
+  margin: 0 17px 184px;
+  padding: 5px 0;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 12px 24px;
+      padding: 47px 0 56px;
+      width: 100%;
+      max-width: 376px;
+      overflow: hidden;
+      border-radius: 24px;
+      background-color: $beige-light;
+      transition: all 0.3s;
+      animation: fade-team 1s;
+
+      h3 {
+        margin-bottom: 15px;
+        max-width: 50%;
+        text-align: center;
+        color: $brown-dark;
+        animation: fade-team 1.1s;
+
+        @include m($xl) {
+          margin-bottom: 4px;
+        }
+      }
+
+      p {
+        margin-bottom: 32px;
+        color: $orange-dark;
+        animation: fade-team 1.2s;
+
+        @include m($xl) {
+          margin-bottom: 24px;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+
+      &:first-child {
+        animation: fade-team 1.2s;
+      }
+
+      &:nth-child(2) {
+        animation: fade-team 1.35s;
+      }
+
+      &:nth-child(3) {
+        animation: fade-team 1.5s;
+      }
+
+      &:nth-child(4) {
+        animation: fade-team 1.2s;
+      }
+
+      &:nth-child(5) {
+        animation: fade-team 1.35s;
+      }
+
+      &:nth-child(6) {
+        animation: fade-team 1.5s;
+      }
+
+      &:nth-child(7) {
+        animation: fade-team 1.2s;
+      }
+
+      &:nth-child(8) {
+        animation: fade-team 1.35s;
+      }
+
+      &:nth-child(9) {
+        animation: fade-team 1.5s;
+      }
+
+      @include m($xl) {
+        margin: 0 8px 15px;
+        padding: 26px 0 40px;
+        max-width: 342px;
+      }
+
+      @include m($sm) {
+        margin: 0 0 15px;
+      }
+    }
+
+    @include m($md) {
+      justify-content: center;
+    }
+  }
+
+  h3 {
+    margin: 0 auto;
+  }
+
+  &__img {
+    margin-bottom: 40px;
+    max-height: 209px;
+    object-fit: contain;
+
+    @include m($xl) {
+      margin-bottom: 24px;
+      max-width: 140px;
+    }
+  }
+
+  &__social {
+    display: flex;
+    padding: 10px;
+    animation: fade-team 1.3s;
+
+    a {
+      &:not(:last-child) {
+        margin-right: 18px;
+      }
+    }
+  }
+
+  &__social-link {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+
+    .pressed {
+      left: 0;
+      top: 0;
+
+      &::before {
+        background-color: $brown-dark;
+      }
+
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+
+  .headings-title {
+    margin-bottom: 48px;
+    padding-top: 5px;
+    overflow: hidden;
+    text-align: center;
+
+    h2:not(:first-child) {
+      top: 5px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      animation: fade 1s;
+    }
+
+    .stroke {
+      -webkit-text-stroke: 8px $green-dark;
+    }
+
+    @include m($lg) {
+      margin-bottom: 24px;
+    }
+  }
+
+  @include m($xl) {
+    margin: 0 17px 120px;
+  }
+
+  @include m($lg) {
+    margin: 0 17px 65px;
+  }
+}
+
+.subscribe {
+  position: relative;
+  margin: 0 auto 184px;
+  padding: 120px;
+  max-width: 1417px;
+  border-radius: 32px;
+  background-color: $green-light;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+    width: 94%;
+    height: 80px;
+    background-color: #adda6d;
+    transform: translateX(-50%);
+  }
+
+  &::before {
+    bottom: -24px;
+    border-radius: 0 0 32px 32px;
+
+    @include m($lg) {
+      bottom: -12px;
+      border-radius: 0 0 16px 16px;
+    }
+  }
+
+  &::after {
+    top: -24px;
+    border-radius: 32px 32px 0 0;
+
+    @include m($lg) {
+      top: -12px;
+      border-radius: 16px 16px 0 0;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include m($lg) {
+      flex-direction: column;
+    }
+  }
+
+  &__text {
+    margin-left: 30px;
+    width: 100%;
+    max-width: 480px;
+
+    @include m($lg) {
+      margin-left: 0;
+      max-width: 100%;
+    }
+  }
+
+  &__form {
+    position: relative;
+    opacity: 0;
+    animation: fade 1.4s forwards;
+
+    label {
+      margin-bottom: 32px;
+
+      span {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: -0.04em;
+        color: $brown-light;
+      }
+
+      input {
+        display: block;
+        padding: 16px;
+        width: 100%;
+        height: 54px;
+        max-width: 377px;
+        outline: none;
+        border: 2px solid $orange-dark;
+        border-radius: 16px;
+        background-color: $white;
+        transition: all 0.3s;
+
+        &::placeholder {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: -0.04em;
+          color: #c4c5c6;
+        }
+
+        &:hover,
+        &:active,
+        &:focus,
+        &:target {
+          border: 2px solid #ac5167;
+        }
+      }
+
+      @include m($lg) {
+        margin-bottom: 16px;
+      }
+    }
+
+    .subscribe__button {
+      display: block;
+    }
+  }
+
+  .headings-title {
+    margin-bottom: 8px;
+    padding: 5px;
+    overflow: hidden;
+
+    h2:not(:first-child) {
+      padding: 5px;
+    }
+
+    h2 {
+      font-size: 55px;
+      line-height: 56px;
+      animation: fade 1s;
+
+      @include m($lg) {
+        font-size: 40px;
+        line-height: 40px;
+      }
+    }
+
+    .stroke {
+      -webkit-text-stroke: 8px $red-dark;
+    }
+  }
+
+  p {
+    margin-bottom: 32px;
+
+    @include m($lg) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .hide {
+    .wow {
+      opacity: 0;
+      animation: fade 1.2s forwards;
+
+      p {
+        opacity: 0;
+        animation: fade 1.1s forwards !important;
+      }
+    }
+  }
+
+  .button {
+    position: relative;
+    margin-top: 10px;
+    width: fit-content;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+  }
+
+  @include m(1400) {
+    padding: 90px 80px;
+  }
+
+  @include m($xl) {
+    padding: 80px;
+  }
+
+  @include m($lg) {
+    margin: 0 auto 84px;
+    padding: 64px 28px;
+    border-radius: 16px;
+  }
+}
+
+.roadmap-img-arrow {
+  @include m($lg) {
+    display: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    transform: translateY(200%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-team {
+  from {
+    transform: translateY(150px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.span-1 {
+  position: absolute;
+  right: 0;
+  top: -10%;
+  display: block;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background-image: radial-gradient(217.68% 217.68% at 27.97% 49.05%, #5ac2fd 0%, #5ab8fd 100%);
+  filter: blur(100px);
+  animation: circle1 8s linear infinite;
+
+  @include m($sm) {
+    top: 0;
+    filter: blur(60px);
+  }
+}
+
+.span-2 {
+  position: absolute;
+  left: 0;
+  top: -10%;
+  display: block;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background-image: radial-gradient(158.99% 50% at 50% 50%, #816cff 0%, rgba(115, 92, 255, 0.37) 100%);
+  filter: blur(100px);
+  animation: circle2 8s linear infinite;
+
+  @include m($sm) {
+    top: 0;
+    filter: blur(60px);
+  }
+}
+
+.span-3 {
+  position: absolute;
+  left: 0;
+  bottom: -35%;
+  display: block;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background-color: #ffdea5;
+  filter: blur(100px);
+  animation: circle3 8s linear infinite;
+
+  @include m($md) {
+    bottom: -10%;
+  }
+
+  @include m($sm) {
+    bottom: 0;
+    filter: blur(60px);
+  }
+}
+
+.span-4 {
+  position: absolute;
+  right: 0;
+  bottom: -35%;
+  display: block;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background-color: #cbee99;
+  filter: blur(100px);
+  animation: circle4 8s linear infinite;
+
+  @include m($md) {
+    bottom: -10%;
+  }
+
+  @include m($sm) {
+    bottom: 0;
+    filter: blur(60px);
+  }
+}
+
+.span-1,
+.span-2,
+.span-3,
+.span-4 {
+  @include m($xl) {
+    width: 600px;
+    height: 600px;
+  }
+
+  @include m($md) {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.wpcf7-not-valid {
+  border: 2px solid #cb0000 !important;
+}
+
+.wpcf7-not-valid-tip {
+  color: #cb0000 !important;
+}
+
+@keyframes rotate-appear {
+  0% {
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

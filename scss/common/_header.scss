@@ -1,0 +1,255 @@
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 8px;
+  z-index: 22;
+  margin: 0 auto;
+  width: 100%;
+  height: 90px;
+  max-width: 1256px;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  background-color: $white;
+  transition: border 0.3s;
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 100%;
+    overflow: hidden;
+
+    &__logo {
+      opacity: 0;
+      animation: fade 0.8s forwards;
+
+      @include m($xl) {
+        max-width: 240px;
+      }
+
+      @include m($lg) {
+        max-width: 190px;
+      }
+    }
+
+    &__bunch {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .team__social {
+        display: none;
+
+        @include m($lg) {
+          display: flex;
+        }
+      }
+
+      .team__social-link {
+        .pressed::after {
+          background-color: $beige-light;
+        }
+      }
+
+      .header__buttons {
+        @include m($lg) {
+          margin: 0 0 9vw;
+        }
+      }
+
+      ul {
+        opacity: 0;
+        margin: 0 auto;
+        animation: fade 0.8s 0.25s forwards;
+
+        li {
+          &::after {
+            @include m($lg) {
+              display: none;
+            }
+          }
+
+          &:not(:last-child) {
+            @include m($lg) {
+              margin: 0 0 4vw;
+            }
+          }
+
+          + li {
+            @include m($lg) {
+              margin-left: 0 !important;
+            }
+          }
+
+          a {
+            @include m($lg) {
+              font-size: 24px;
+              line-height: 32px;
+            }
+          }
+        }
+
+        @include m($lg) {
+          flex-direction: column;
+          align-items: center;
+          margin: 0 0 7vw;
+        }
+      }
+
+      @include m($lg) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 64px;
+        bottom: 0;
+        z-index: 30;
+        flex-direction: column;
+        padding: 43px 0;
+        width: 100%;
+        height: 100vh;
+        background-color: $white;
+        transform: translateX(-200%);
+        transition: all 0.3s;
+      }
+    }
+
+    &__bunch--active {
+      transform: translateX(0);
+    }
+
+    ul {
+      display: flex;
+
+      a {
+        font-size: 14px;
+        line-height: 22px;
+        color: $brown-dark;
+        transition: all 0.3s;
+      }
+
+      li {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -16px;
+          opacity: 0;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: $red-dark;
+          transform: translateX(-50%);
+          transition: all 0.3s;
+        }
+
+        + li {
+          margin-left: 32px;
+
+          @include m($xl) {
+            margin-left: 20px;
+          }
+        }
+
+        &:hover {
+          &::after {
+            opacity: 1;
+          }
+
+          a {
+            color: $red-dark;
+          }
+        }
+      }
+    }
+
+    @include m($xl) {
+      padding: 0 17px;
+    }
+  }
+
+  .menu__active {
+    &::after {
+      opacity: 1 !important;
+    }
+
+    a {
+      color: $red-dark !important;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    opacity: 0;
+    animation: fade 0.8s 0.2s forwards;
+
+    .button {
+      &:last-child {
+        margin-left: 25px;
+      }
+    }
+  }
+
+  &__burger {
+    position: relative;
+    display: none;
+    width: 40px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    animation: fade 1s forwards;
+    cursor: pointer;
+
+    .burger__close,
+    .burger__open {
+      position: absolute;
+      left: 0;
+      top: 0;
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.1s;
+    }
+
+    .burger__close {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    @include m($lg) {
+      display: block;
+    }
+  }
+
+  &__burger--active {
+    .burger__close {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .burger__open {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &--active {
+    border: 1px solid #c4c5c6;
+
+    @include m($lg) {
+      border: none;
+      border-bottom: 1px solid #c4c5c6 !important;
+    }
+  }
+
+  @include m($lg) {
+    top: 0;
+    height: 64px;
+    border: none;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,114 @@
+.error {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 110px 24px 120px;
+  overflow: hidden;
+  border-radius: 32px;
+  background-color: $red-light;
+
+  &__img {
+    position: relative;
+    z-index: 10;
+    padding-bottom: 10vw;
+    max-width: 50vw;
+
+    img {
+      @include m($md) {
+        min-width: 300px;
+      }
+    }
+
+    @include m($xl) {
+      padding-bottom: 0;
+    }
+
+    @include m($md) {
+      padding-bottom: 0;
+      max-width: 80%;
+    }
+
+    @include m($sm) {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      max-width: 100%;
+    }
+  }
+
+  &__inner {
+    position: absolute;
+    bottom: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    animation: fade-team 1s;
+
+    .header__buttons {
+      opacity: 1;
+      animation: none;
+    }
+
+    @include m($xl) {
+      position: relative;
+      bottom: 0;
+      margin-bottom: 80px;
+    }
+  }
+
+  .headings {
+    max-width: 492px;
+    font-size: 32px;
+    line-height: 32px;
+
+    .stroke {
+      -webkit-text-stroke: 4px $red-dark;
+    }
+
+    h4 {
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    @include m($lg) {
+      position: relative;
+      left: 0;
+      transform: translateX(0);
+    }
+
+    @include m($md) {
+      top: 65%;
+    }
+  }
+
+  .header__buttons {
+    margin: 0 auto;
+
+    .button {
+      margin: 0;
+    }
+  }
+
+  .button {
+    color: $red-dark;
+
+    &::before {
+      background-color: $white;
+    }
+
+    &::after {
+      background-color: $red-dark;
+    }
+  }
+
+  @include m($xl) {
+    margin: 110px 24px 100px;
+  }
+
+  @include m($lg) {
+    margin: 64px 17px 74px;
+  }
+}
